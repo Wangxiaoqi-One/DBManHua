@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YingYuanModel.h"
+
 
 @interface YIngYuanTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) YingYuanModel *model;
+
+
 
 @end

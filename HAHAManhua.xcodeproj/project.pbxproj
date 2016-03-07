@@ -11,6 +11,19 @@
 		7A45B0381C8918B30069369A /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45B0371C8918B30069369A /* MainModel.m */; };
 		7A45B0511C8969FE0069369A /* UIViewController+common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45B0501C8969FE0069369A /* UIViewController+common.m */; };
 		7A45B0561C8977B20069369A /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45B0551C8977B20069369A /* WebP.framework */; };
+		7A6ACE3D1C8CFEE2009CDA01 /* YingYuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE3C1C8CFEE2009CDA01 /* YingYuanModel.m */; };
+		7A6ACE401C8D0ECC009CDA01 /* TwoYingYuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE3F1C8D0ECC009CDA01 /* TwoYingYuanViewController.m */; };
+		7A6ACE421C8D1735009CDA01 /* TwoMovies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A6ACE411C8D1735009CDA01 /* TwoMovies.plist */; };
+		7A6ACE451C8D17D4009CDA01 /* TwoMoviesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE441C8D17D4009CDA01 /* TwoMoviesModel.m */; };
+		7A6ACE491C8D2054009CDA01 /* TwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE471C8D2054009CDA01 /* TwoTableViewCell.m */; };
+		7A6ACE4A1C8D2054009CDA01 /* TwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6ACE481C8D2054009CDA01 /* TwoTableViewCell.xib */; };
+		7A6ACE4D1C8D2D5C009CDA01 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE4C1C8D2D5C009CDA01 /* DetailViewController.m */; };
+		7A6ACE561C8D5FDF009CDA01 /* comments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A6ACE551C8D5FDF009CDA01 /* comments.plist */; };
+		7A6ACE591C8D6E5C009CDA01 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE581C8D6E5C009CDA01 /* DetailModel.m */; };
+		7A6ACE5C1C8D8A3A009CDA01 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE5B1C8D8A3A009CDA01 /* VideoViewController.m */; };
+		7A6ACE5F1C8D9F95009CDA01 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE5E1C8D9F95009CDA01 /* SetViewController.m */; };
+		7A6ACE651C8DADD0009CDA01 /* XiangQingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE631C8DADD0009CDA01 /* XiangQingTableViewCell.m */; };
+		7A6ACE661C8DADD0009CDA01 /* XiangQingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6ACE641C8DADD0009CDA01 /* XiangQingTableViewCell.xib */; };
 		7A8869791C89951A00141DC4 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8869781C89951A00141DC4 /* Property List.plist */; };
 		7A8A4ACE1C8AB1580042E440 /* classView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8A4ACD1C8AB1580042E440 /* classView.m */; };
 		7A8A4AD11C8ADF450042E440 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8A4AD01C8ADF450042E440 /* TableViewCell.m */; };
@@ -45,6 +58,28 @@
 		7A45B04F1C8969FE0069369A /* UIViewController+common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+common.h"; sourceTree = "<group>"; };
 		7A45B0501C8969FE0069369A /* UIViewController+common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+common.m"; sourceTree = "<group>"; };
 		7A45B0551C8977B20069369A /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		7A6ACE3B1C8CFEE2009CDA01 /* YingYuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYuanModel.h; sourceTree = "<group>"; };
+		7A6ACE3C1C8CFEE2009CDA01 /* YingYuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYuanModel.m; sourceTree = "<group>"; };
+		7A6ACE3E1C8D0ECC009CDA01 /* TwoYingYuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoYingYuanViewController.h; sourceTree = "<group>"; };
+		7A6ACE3F1C8D0ECC009CDA01 /* TwoYingYuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoYingYuanViewController.m; sourceTree = "<group>"; };
+		7A6ACE411C8D1735009CDA01 /* TwoMovies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwoMovies.plist; sourceTree = "<group>"; };
+		7A6ACE431C8D17D4009CDA01 /* TwoMoviesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoMoviesModel.h; sourceTree = "<group>"; };
+		7A6ACE441C8D17D4009CDA01 /* TwoMoviesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoMoviesModel.m; sourceTree = "<group>"; };
+		7A6ACE461C8D2054009CDA01 /* TwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTableViewCell.h; sourceTree = "<group>"; };
+		7A6ACE471C8D2054009CDA01 /* TwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTableViewCell.m; sourceTree = "<group>"; };
+		7A6ACE481C8D2054009CDA01 /* TwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoTableViewCell.xib; sourceTree = "<group>"; };
+		7A6ACE4B1C8D2D5C009CDA01 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7A6ACE4C1C8D2D5C009CDA01 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7A6ACE551C8D5FDF009CDA01 /* comments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = comments.plist; sourceTree = "<group>"; };
+		7A6ACE571C8D6E5C009CDA01 /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
+		7A6ACE581C8D6E5C009CDA01 /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
+		7A6ACE5A1C8D8A3A009CDA01 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		7A6ACE5B1C8D8A3A009CDA01 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		7A6ACE5D1C8D9F95009CDA01 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		7A6ACE5E1C8D9F95009CDA01 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		7A6ACE621C8DADD0009CDA01 /* XiangQingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiangQingTableViewCell.h; sourceTree = "<group>"; };
+		7A6ACE631C8DADD0009CDA01 /* XiangQingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiangQingTableViewCell.m; sourceTree = "<group>"; };
+		7A6ACE641C8DADD0009CDA01 /* XiangQingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiangQingTableViewCell.xib; sourceTree = "<group>"; };
 		7A8869781C89951A00141DC4 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		7A8A4ACC1C8AB1580042E440 /* classView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classView.h; sourceTree = "<group>"; };
 		7A8A4ACD1C8AB1580042E440 /* classView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = classView.m; sourceTree = "<group>"; };
@@ -173,6 +208,14 @@
 				7A45B0371C8918B30069369A /* MainModel.m */,
 				7A8869781C89951A00141DC4 /* Property List.plist */,
 				7AE6D87E1C8C5FA600116BDA /* YingYuan.plist */,
+				7A6ACE3B1C8CFEE2009CDA01 /* YingYuanModel.h */,
+				7A6ACE3C1C8CFEE2009CDA01 /* YingYuanModel.m */,
+				7A6ACE411C8D1735009CDA01 /* TwoMovies.plist */,
+				7A6ACE431C8D17D4009CDA01 /* TwoMoviesModel.h */,
+				7A6ACE441C8D17D4009CDA01 /* TwoMoviesModel.m */,
+				7A6ACE551C8D5FDF009CDA01 /* comments.plist */,
+				7A6ACE571C8D6E5C009CDA01 /* DetailModel.h */,
+				7A6ACE581C8D6E5C009CDA01 /* DetailModel.m */,
 			);
 			path = Modeles;
 			sourceTree = "<group>";
@@ -186,6 +229,14 @@
 				7AE6D8741C8C210B00116BDA /* BaozouMHViewController.m */,
 				7AE6D8761C8C4ECE00116BDA /* BaouYingYuanViewController.h */,
 				7AE6D8771C8C4ECE00116BDA /* BaouYingYuanViewController.m */,
+				7A6ACE3E1C8D0ECC009CDA01 /* TwoYingYuanViewController.h */,
+				7A6ACE3F1C8D0ECC009CDA01 /* TwoYingYuanViewController.m */,
+				7A6ACE4B1C8D2D5C009CDA01 /* DetailViewController.h */,
+				7A6ACE4C1C8D2D5C009CDA01 /* DetailViewController.m */,
+				7A6ACE5A1C8D8A3A009CDA01 /* VideoViewController.h */,
+				7A6ACE5B1C8D8A3A009CDA01 /* VideoViewController.m */,
+				7A6ACE5D1C8D9F95009CDA01 /* SetViewController.h */,
+				7A6ACE5E1C8D9F95009CDA01 /* SetViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -193,6 +244,9 @@
 		7AF9320D1C88366500BC4CE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A6ACE621C8DADD0009CDA01 /* XiangQingTableViewCell.h */,
+				7A6ACE631C8DADD0009CDA01 /* XiangQingTableViewCell.m */,
+				7A6ACE641C8DADD0009CDA01 /* XiangQingTableViewCell.xib */,
 				7AF932191C8839F600BC4CE5 /* MainStoryboard.storyboard */,
 				7A8A4ACC1C8AB1580042E440 /* classView.h */,
 				7A8A4ACD1C8AB1580042E440 /* classView.m */,
@@ -201,6 +255,9 @@
 				7AE6D8791C8C589600116BDA /* YIngYuanTableViewCell.h */,
 				7AE6D87A1C8C589600116BDA /* YIngYuanTableViewCell.m */,
 				7AE6D87B1C8C589600116BDA /* YIngYuanTableViewCell.xib */,
+				7A6ACE461C8D2054009CDA01 /* TwoTableViewCell.h */,
+				7A6ACE471C8D2054009CDA01 /* TwoTableViewCell.m */,
+				7A6ACE481C8D2054009CDA01 /* TwoTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,11 +380,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A6ACE661C8DADD0009CDA01 /* XiangQingTableViewCell.xib in Resources */,
 				7AF932391C88446500BC4CE5 /* blueArrowDown.png in Resources */,
 				7AF9321A1C8839F600BC4CE5 /* MainStoryboard.storyboard in Resources */,
 				7AF931FB1C882AE200BC4CE5 /* Assets.xcassets in Resources */,
+				7A6ACE561C8D5FDF009CDA01 /* comments.plist in Resources */,
 				7AE6D87D1C8C589600116BDA /* YIngYuanTableViewCell.xib in Resources */,
+				7A6ACE4A1C8D2054009CDA01 /* TwoTableViewCell.xib in Resources */,
 				7AE6D87F1C8C5FA600116BDA /* YingYuan.plist in Resources */,
+				7A6ACE421C8D1735009CDA01 /* TwoMovies.plist in Resources */,
 				7AF932381C88446500BC4CE5 /* blueArrow.png in Resources */,
 				7AF931FE1C882AE200BC4CE5 /* LaunchScreen.storyboard in Resources */,
 				7A8869791C89951A00141DC4 /* Property List.plist in Resources */,
@@ -389,22 +450,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A6ACE451C8D17D4009CDA01 /* TwoMoviesModel.m in Sources */,
 				7AF931F91C882AE200BC4CE5 /* AppDelegate.m in Sources */,
+				7A6ACE3D1C8CFEE2009CDA01 /* YingYuanModel.m in Sources */,
 				7AF932301C88443300BC4CE5 /* VOIndicatorAnimation.m in Sources */,
 				7AF9323A1C88446500BC4CE5 /* PullingRefreshTableView.m in Sources */,
+				7A6ACE591C8D6E5C009CDA01 /* DetailModel.m in Sources */,
 				7AF932181C8839D700BC4CE5 /* MainViewController.m in Sources */,
 				7A45B0511C8969FE0069369A /* UIViewController+common.m in Sources */,
 				7AF931F61C882AE200BC4CE5 /* main.m in Sources */,
 				7A8A4AD11C8ADF450042E440 /* TableViewCell.m in Sources */,
 				7AF9322F1C88443300BC4CE5 /* VOContentLayer.m in Sources */,
+				7A6ACE491C8D2054009CDA01 /* TwoTableViewCell.m in Sources */,
 				7A8A4ACE1C8AB1580042E440 /* classView.m in Sources */,
 				7AE6D87C1C8C589600116BDA /* YIngYuanTableViewCell.m in Sources */,
+				7A6ACE5C1C8D8A3A009CDA01 /* VideoViewController.m in Sources */,
 				7A32C5991C8A70450038CB71 /* UIView+UIViewExtension.m in Sources */,
 				7A45B0381C8918B30069369A /* MainModel.m in Sources */,
 				7AF932311C88443300BC4CE5 /* VOSegment.m in Sources */,
 				7AF932321C88443300BC4CE5 /* VOSegmentedControl.m in Sources */,
+				7A6ACE651C8DADD0009CDA01 /* XiangQingTableViewCell.m in Sources */,
+				7A6ACE401C8D0ECC009CDA01 /* TwoYingYuanViewController.m in Sources */,
 				7AE6D8781C8C4ECE00116BDA /* BaouYingYuanViewController.m in Sources */,
 				7AE6D8751C8C210B00116BDA /* BaozouMHViewController.m in Sources */,
+				7A6ACE5F1C8D9F95009CDA01 /* SetViewController.m in Sources */,
+				7A6ACE4D1C8D2D5C009CDA01 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

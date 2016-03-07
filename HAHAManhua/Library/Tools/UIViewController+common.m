@@ -24,4 +24,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)showTitleImageView{
+    UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    titleImageView.image = [UIImage imageNamed:@"movies_title"];
+    
+    self.navigationItem.titleView = titleImageView;
+}
+
+
 @end

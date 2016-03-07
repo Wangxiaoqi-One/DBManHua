@@ -1,48 +1,42 @@
 //
-//  BaouYingYuanViewController.m
+//  TwoYingYuanViewController.m
 //  HAHAManhua
 //
-//  Created by scjy on 16/3/6.
+//  Created by scjy on 16/3/7.
 //  Copyright © 2016年 WangXiaoQi. All rights reserved.
 //
 
-#import "BaouYingYuanViewController.h"
-#import "PullingRefreshTableView.h"
-#import "YIngYuanTableViewCell.h"
-#import <AFNetworking.h>
-#import "YingYuanModel.h"
 #import "TwoYingYuanViewController.h"
+#import "TwoTableViewCell.h"
+#import <AFNetworking.h>
+#import "TwoMoviesModel.h"
+#import "PullingRefreshTableView.h"
+#import "DetailViewController.h"
 
-@interface BaouYingYuanViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
-
+@interface TwoYingYuanViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
 {
     NSInteger _pageCount;
+    NSInteger _totalPage;
 }
+
 
 @property (nonatomic, strong) PullingRefreshTableView *tableView;
 @property (nonatomic, strong) NSMutableArray *listArray;
-
 @property (nonatomic, assign) BOOL refreshing;
 
 @end
 
-@implementation BaouYingYuanViewController
+@implementation TwoYingYuanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self showTitleImageView];
     [self showBackBtn];
-    
+    [self showTitleImageView];
     [self.view addSubview:self.tableView];
-    [self.tableView registerNib:[UINib nibWithNibName:@"YIngYuanTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     _pageCount = 1;
-    [self requestModel];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    [self requestModel1];
 }
 
 #pragma mark ------UITableViewDataSource
@@ -52,30 +46,38 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    YIngYuanTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.model = self.listArray[indexPath.row];
+    TwoTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.twoModel = self.listArray[indexPath.row];
     return cell;
 }
-#pragma mark ------UITableViewdelegate
+
+#pragma mark ------UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    TwoYingYuanViewController *twoVC = [[TwoYingYuanViewController alloc] init];
-    YingYuanModel *model = self.listArray[indexPath.row];
-    twoVC.moviesId = model.moviesId;
-    [self.navigationController pushViewController:twoVC animated:YES];
+    DetailViewController *detailVC = [[DetailViewController alloc] init];
+    TwoMoviesModel *model = self.listArray[indexPath.row];
+    detailVC.twoModel = model;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-#pragma mark ------PullingRefreshTableViewDelegate
+#pragma mark -------PullingRefreshTableViewDelegate
+
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
-    self.refreshing = NO;
-    _pageCount = 2;
-    [self performSelector:@selector(requestModel) withObject:nil afterDelay:1.0];
+    if (_pageCount == _totalPage) {
+        [self.tableView tableViewDidFinishedLoading];
+        self.tableView.reachedTheEnd = YES;
+    }else{
+        _pageCount += 1;
+        self.refreshing = NO;
+        [self performSelector:@selector(requestModel1) withObject:nil afterDelay:1.0];
+    }
 }
 
 - (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
-    self.refreshing = YES;
     _pageCount = 1;
-    [self performSelector:@selector(requestModel) withObject:nil afterDelay:1.0];
+    self.refreshing = YES;
+    [self performSelector:@selector(requestModel1) withObject:nil afterDelay:1.0];
+
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -86,20 +88,20 @@
     [self.tableView tableViewDidEndDragging:scrollView];
 }
 
-#pragma mark ------Lazyloading
+#pragma mark -------Lazyloading
 
-- (PullingRefreshTableView *)tableView{
+-(UITableView *)tableView{
     if (_tableView == nil) {
-        self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) pullingDelegate:self];
+        self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) pullingDelegate:self];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.tableView.rowHeight = 171;
+        self.tableView.rowHeight = 100;
     }
     return _tableView;
 }
 
-- (NSMutableArray *)listArray {
+- (NSMutableArray *)listArray{
     if (_listArray == nil) {
         self.listArray = [NSMutableArray new];
     }
@@ -108,21 +110,33 @@
 
 #pragma mark -------CustomMethod
 
-- (void)requestModel{
+- (void)requestModel1{
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
-    [sessionManager GET:[NSString stringWithFormat:kBaoYingYuan, _pageCount] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:kYingYuanTwo, self.moviesId, _pageCount] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *successDic = responseObject;
-        NSArray *array = successDic[@"cinema"];
+        NSArray *array = successDic[@"articles"];
+        _totalPage = [successDic[@"total_pages"] integerValue];
         if (self.refreshing) {
             if (self.listArray.count > 0) {
                 [self.listArray removeAllObjects];
             }
+            for (NSDictionary *dic in array) {
+                TwoMoviesModel *model = [[TwoMoviesModel alloc] initWithDictionary:dic];
+                [self.listArray addObject:model];
+            }
+
         }
-        for (NSDictionary *dic in array) {
-            YingYuanModel *model = [[YingYuanModel alloc] initWithDictionary:dic];
-            [self.listArray addObject:model];
+        else{
+            if (self.listArray.count == _totalPage) {
+                
+            }else{
+                for (NSDictionary *dic in array) {
+                    TwoMoviesModel *model = [[TwoMoviesModel alloc] initWithDictionary:dic];
+                    [self.listArray addObject:model];
+                }
+            }
         }
         [self.tableView tableViewDidFinishedLoading];
         self.tableView.reachedTheEnd = NO;
