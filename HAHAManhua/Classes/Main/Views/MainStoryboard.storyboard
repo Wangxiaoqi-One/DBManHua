@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sOa-NS-Cil">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--最热门-->
+        <scene sceneID="wt2-Fn-sel">
+            <objects>
+                <viewController storyboardIdentifier="baozou" id="QfU-O8-iX5" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E6B-FL-fKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="krY-6c-8YI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zyn-e2-AVM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="最热门" id="KNh-UU-fGr"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLp-eD-1O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186.5" y="387.5"/>
+        </scene>
+        <!--BaozouMH View Controller-->
+        <scene sceneID="3FG-de-HES">
+            <objects>
+                <viewController id="scl-sd-SgR" customClass="BaozouMHViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pcw-zQ-l64"/>
+                        <viewControllerLayoutGuide type="bottom" id="D9z-E3-EGN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nhc-Yc-HWP">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-w9-nen">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-Bl-HFt">
+                                <rect key="frame" x="0.0" y="440" width="145" height="134"/>
+                                <state key="normal" image="baozhuye_normal"/>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujw-ju-2GZ">
+                                <rect key="frame" x="213" y="440" width="162" height="125"/>
+                                <state key="normal" image="baoyingyuan_normal"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhF-jf-k7F">
+                                <rect key="frame" x="275" y="107" width="71" height="25"/>
+                                <state key="normal" image="main_activity_not_login"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40p-3F-JcE">
+                                <rect key="frame" x="275" y="40" width="71" height="72"/>
+                                <state key="normal" title="Button" image="main_activity_default_face"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_activity_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EGw-0c-2Xz">
+                                <rect key="frame" x="15" y="40" width="98" height="58"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHX-k8-3P3">
+                                <rect key="frame" x="20" y="107" width="40" height="32"/>
+                                <state key="normal" image="main_activity_setting_normal"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLR-fw-qzs">
+                                <rect key="frame" x="70" y="166" width="234" height="225"/>
+                                <state key="normal" image="dadi_normal"/>
+                                <connections>
+                                    <action selector="dadiAction:" destination="scl-sd-SgR" eventType="touchUpInside" id="Pcs-fo-a9I"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="foS-j4-Wi2"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="baoYingYuanBtn" destination="Ujw-ju-2GZ" id="3HO-QK-3Xk"/>
+                        <outlet property="baoZhuYeBtn" destination="lFm-Bl-HFt" id="Xmb-Z2-dEI"/>
+                        <outlet property="loginBtn" destination="40p-3F-JcE" id="MQR-nH-Y6K"/>
+                        <outlet property="loginStatusBtn" destination="WhF-jf-k7F" id="Spr-Xy-bRF"/>
+                        <outlet property="settingBtn" destination="XHX-k8-3P3" id="JxM-5W-PUd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Xb-Ad-2Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4493.5" y="359.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cPg-R2-d2o">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sOa-NS-Cil" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2QH-uH-rhz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.030647079340000001" blue="0.072125009030000006" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="scl-sd-SgR" kind="relationship" relationship="rootViewController" id="2P8-4f-83v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kI-3y-qWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3681" y="359"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="baoyingyuan_normal" width="128" height="148"/>
+        <image name="baozhuye_normal" width="172" height="185"/>
+        <image name="dadi_normal" width="180" height="225"/>
+        <image name="main_activity_default_face" width="66" height="56"/>
+        <image name="main_activity_logo" width="88" height="46"/>
+        <image name="main_activity_not_login" width="66" height="25"/>
+        <image name="main_activity_setting_normal" width="29" height="32"/>
+        <image name="map" width="160" height="240"/>
+    </resources>
+</document>

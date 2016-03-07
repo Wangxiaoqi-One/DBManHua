@@ -1,0 +1,37 @@
+//
+//  Prefix.pch
+//  HAHAManhua
+//
+//  Created by scjy on 16/3/3.
+//  Copyright © 2016年 WangXiaoQi. All rights reserved.
+//
+
+#ifndef Prefix_pch
+#define Prefix_pch
+
+#import "HADefine.h"
+#import "UIViewController+common.h"
+#import "UIView+UIViewExtension.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#ifdef DEBUG
+#	define WXQLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#	define DLog(...)
+#endif
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
+
+#define kCGImageAlphaPremultipliedLast  (kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast)
+
+#else
+
+#define kCGImageAlphaPremultipliedLast  kCGImageAlphaPremultipliedLast
+
+#endif
+
+#endif /* Prefix_pch */
