@@ -10,7 +10,7 @@
 #import "PullingRefreshTableView.h"
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
-#import "XiangQingTableViewCell.h"
+#import "DetailTableViewCell.h"
 #import "DetailModel.h"
 #import "VideoViewController.h"
 
@@ -40,7 +40,7 @@
     [self showTitleImageView];
     [self configHeaderView];
     [self.view addSubview:self.tableView];
-    [self.tableView registerNib:[UINib nibWithNibName:@"XiangQingTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[DetailTableViewCell class] forCellReuseIdentifier:@"cell"];
 }
 
 - (void)setTwoModel:(TwoMoviesModel *)twoModel{
@@ -63,7 +63,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    XiangQingTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    DetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.model = self.listArray[indexPath.row];
     return cell;
 }

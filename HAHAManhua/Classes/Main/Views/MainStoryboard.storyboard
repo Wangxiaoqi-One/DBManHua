@@ -34,19 +34,15 @@
                         <viewControllerLayoutGuide type="bottom" id="D9z-E3-EGN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nhc-Yc-HWP">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-w9-nen">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-Bl-HFt">
-                                <rect key="frame" x="0.0" y="440" width="145" height="134"/>
+                                <rect key="frame" x="5" y="415" width="159" height="153"/>
                                 <state key="normal" image="baozhuye_normal"/>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujw-ju-2GZ">
-                                <rect key="frame" x="213" y="440" width="162" height="125"/>
-                                <state key="normal" image="baoyingyuan_normal"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhF-jf-k7F">
                                 <rect key="frame" x="275" y="107" width="71" height="25"/>
@@ -64,11 +60,22 @@
                                 <state key="normal" image="main_activity_setting_normal"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLR-fw-qzs">
-                                <rect key="frame" x="70" y="166" width="234" height="225"/>
+                                <rect key="frame" x="65" y="164" width="234" height="225"/>
                                 <state key="normal" image="dadi_normal"/>
                                 <connections>
                                     <action selector="dadiAction:" destination="scl-sd-SgR" eventType="touchUpInside" id="Pcs-fo-a9I"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbA-1p-gFX">
+                                <rect key="frame" x="10" y="562" width="124" height="105"/>
+                                <state key="normal" image="baoxiazai_normal"/>
+                                <connections>
+                                    <action selector="baoxiazaiBtnAction:" destination="scl-sd-SgR" eventType="touchUpInside" id="47N-iF-nDU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujw-ju-2GZ">
+                                <rect key="frame" x="216" y="408" width="148" height="146"/>
+                                <state key="normal" image="baoyingyuan_normal"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,7 +92,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xb-Ad-2Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4493.5" y="359.5"/>
+            <point key="canvasLocation" x="4491.5" y="311.5"/>
+        </scene>
+        <!--Set View Controller-->
+        <scene sceneID="2BM-Ut-j3m">
+            <objects>
+                <viewController id="B6V-qH-auG" customClass="SetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VBT-aW-1He"/>
+                        <viewControllerLayoutGuide type="bottom" id="lrp-nj-xNU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gv8-Uk-PTy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="图片缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtZ-K0-Zo4">
+                                <rect key="frame" x="7" y="149" width="360" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-Pi-wCw">
+                                <rect key="frame" x="284" y="149" width="83" height="41"/>
+                                <state key="normal" image="clean_mem"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="版本信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-1J-XSd">
+                                <rect key="frame" x="7" y="198" width="360" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUB-l3-cpe">
+                                <rect key="frame" x="284" y="198" width="83" height="34"/>
+                                <state key="normal" image="update_btn"/>
+                                <connections>
+                                    <action selector="updateBtn:" destination="B6V-qH-auG" eventType="touchUpInside" id="6XZ-Q4-xan"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vv2-fW-LJp">
+                                <rect key="frame" x="7" y="87" width="360" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="未登陆" image="default_face">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0t-eQ-Fi3">
+                                <rect key="frame" x="7" y="241" width="360" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="意见反馈">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="B6V-qH-auG" eventType="touchUpInside" id="0pW-4w-H7j"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SuE-y8-qsM"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="clearCacheBtn" destination="6gN-Pi-wCw" id="Cqo-5l-jIn"/>
+                        <outlet property="loginBtn" destination="vv2-fW-LJp" id="7AC-P0-g2t"/>
+                        <outlet property="piturescache" destination="KtZ-K0-Zo4" id="G1R-Ac-Vkf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nT6-x8-WTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5791.5" y="351.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cPg-R2-d2o">
@@ -93,7 +169,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sOa-NS-Cil" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2QH-uH-rhz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2QH-uH-rhz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.030647079340000001" blue="0.072125009030000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,15 +183,38 @@
             </objects>
             <point key="canvasLocation" x="3681" y="359"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3j5-fK-z0L">
+            <objects>
+                <navigationController storyboardIdentifier="set" automaticallyAdjustsScrollViewInsets="NO" id="PXd-Y4-lNA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oG8-VK-9gz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B6V-qH-auG" kind="relationship" relationship="rootViewController" id="QVE-bt-ooS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTd-eI-U1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4979" y="351"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="baoxiazai_normal" width="140" height="137"/>
         <image name="baoyingyuan_normal" width="128" height="148"/>
         <image name="baozhuye_normal" width="172" height="185"/>
+        <image name="clean_mem" width="52" height="19"/>
         <image name="dadi_normal" width="180" height="225"/>
+        <image name="default_face" width="27" height="27"/>
         <image name="main_activity_default_face" width="66" height="56"/>
         <image name="main_activity_logo" width="88" height="46"/>
         <image name="main_activity_not_login" width="66" height="25"/>
         <image name="main_activity_setting_normal" width="29" height="32"/>
         <image name="map" width="160" height="240"/>
+        <image name="update_btn" width="52" height="19"/>
     </resources>
 </document>

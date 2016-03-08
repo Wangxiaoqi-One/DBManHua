@@ -10,7 +10,6 @@
 #import "MainViewController.h"
 #import "BaouYingYuanViewController.h"
 
-
 @interface BaozouMHViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;
 @property (strong, nonatomic) IBOutlet UIButton *loginStatusBtn;
@@ -20,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *settingBtn;
 @property (strong, nonatomic) IBOutlet UIButton *baoZhuYeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *baoYingYuanBtn;
+- (IBAction)baoxiazaiBtnAction:(id)sender;
 
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) UIImageView *dadiImageView;
@@ -64,6 +64,13 @@
     //暴影院
     [self.baoYingYuanBtn setImage:[UIImage imageNamed:@"baoyingyuan_pressed"] forState:UIControlStateHighlighted];
     [self.baoYingYuanBtn addTarget:self action:@selector(selectPageAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //设置
+    [self.settingBtn addTarget:self action:@selector(setViewAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    //登陆
+    [self.loginBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.loginStatusBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)selectPageAction:(UIButton *)btn{
@@ -76,9 +83,19 @@
             [self.navigationController pushViewController:baoyinfyuanVC animated:YES];
         }
             break;
-        default:
-            break;
     }
+}
+//设置
+-(void)setViewAction{
+    UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UINavigationController *setnav = [mainSB instantiateViewControllerWithIdentifier:@"set"];
+    [self.navigationController presentViewController:setnav animated:NO completion:nil];
+}
+//登陆
+- (void)loginAction{
+    UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    UINavigationController *loginNav = [loginSB instantiateInitialViewController];
+    [self.navigationController presentViewController:loginNav animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,4 +125,10 @@
     [self.timer invalidate];
 }
 
+- (IBAction)baoxiazaiBtnAction:(id)sender {
+    
+    UIStoryboard *downloadSB = [UIStoryboard storyboardWithName:@"baoDownLoadStoryboard" bundle:nil];
+    UINavigationController *downloadNav = [downloadSB instantiateInitialViewController];
+    [self.navigationController presentViewController:downloadNav animated:NO completion:nil];
+}
 @end

@@ -66,7 +66,8 @@
     _pagecount = 3;
     self.kHttp = kGIF;
     //网络请求
-    [self requestModel];
+//    [self requestModel];
+    [self.tableView launchRefreshing];
 
 }
 
@@ -102,7 +103,6 @@
 
 - (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
     _pagecount = 1;
-    NSLog(@"%ld", _pagecount);
     self.refreshing = YES;
     [self requestModel];
 }
@@ -161,6 +161,15 @@
 
 
 - (void)requestModel{
+    
+    if (![ZMYNetManager shareZMYNetManager].isZMYNetWorkRunning) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"网络提示" message:@"网络不可用" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:action];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
     [sessionManager GET:[NSString stringWithFormat:self.kHttp, _pagecount] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {

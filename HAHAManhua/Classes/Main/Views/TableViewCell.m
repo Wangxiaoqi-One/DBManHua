@@ -8,6 +8,7 @@
 
 #import "TableViewCell.h"
 #import <UIImageView+WebCache.h>
+#import "ShareView.h"
 
 #define kwidth (kScreenWidth - 6)/ 5
 
@@ -30,6 +31,8 @@
 @property (strong, nonatomic) UIView *userView;
 
 @property (strong, nonatomic) UIView *btnsView;
+
+@property (strong, nonatomic) ShareView *shareView;
 
 @end
 
@@ -100,8 +103,9 @@
 - (UIButton *)rmbBtn{
     if (_rmbBtn == nil) {
         self.rmbBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.rmbBtn.frame = CGRectMake(self. userNameLabel.right, 0, 30, 44);
+        self.rmbBtn.frame = CGRectMake(self. userNameLabel.right, 0, 25, 44);
         [self.rmbBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        self.rmbBtn.imageView.image = [UIImage imageNamed:@"reward_btn"];
     }
     return _rmbBtn;
 }
@@ -110,6 +114,7 @@
         self.posBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.posBtn.frame = CGRectMake(0, 0, kwidth, 44);
         [self.posBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.posBtn setImage:[UIImage imageNamed:@"comment_ding_pressed"] forState:UIControlStateNormal];
     }
     return _posBtn;
 }
@@ -119,6 +124,7 @@
         self.negBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.negBtn.frame = CGRectMake(self. posBtn.right, 0, kwidth, 44);
         [self.negBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.negBtn setImage:[UIImage imageNamed:@"button_cai"] forState:UIControlStateNormal];
     }
     return _negBtn;
 }
@@ -128,6 +134,7 @@
         self.commentsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.commentsBtn.frame = CGRectMake(self. negBtn.right, 0, kwidth, 44);
         [self.commentsBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.commentsBtn setImage:[UIImage imageNamed:@"button_comment"] forState:UIControlStateNormal];
     }
     return _commentsBtn;
 }
@@ -137,6 +144,7 @@
         self.favoriteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.favoriteBtn.frame = CGRectMake(self. commentsBtn.right, 0, kwidth, 44);
         [self.favoriteBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.favoriteBtn setImage:[UIImage imageNamed:@"bookmark_btn"] forState:UIControlStateNormal];
     }
     return _favoriteBtn;
 }
@@ -146,6 +154,8 @@
         self.shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.shareBtn.frame = CGRectMake(self. favoriteBtn.right, 0, kwidth, 44);
         [self.shareBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.shareBtn setImage:[UIImage imageNamed:@"bookshop_share_btn"] forState:UIControlStateNormal];
+        [self.shareBtn addTarget:self action:@selector(shareBtnAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _shareBtn;
 }
@@ -165,13 +175,17 @@
     [self.negBtn setTitle:[NSString stringWithFormat:@"%@", model.neg] forState:UIControlStateNormal];
     [self.commentsBtn setTitle:[NSString stringWithFormat:@"%@", model.public_comments_count] forState:UIControlStateNormal];
     [self.favoriteBtn setTitle:[NSString stringWithFormat:@"收藏"] forState:UIControlStateNormal];
-        [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
+    [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
 }
 
 - (CGFloat)getcellHeight:(MainModel *)model{
     CGFloat mheight = [model.height floatValue];
     CGFloat height = mheight + 135;
     return height;
+}
+
+- (void)shareBtnAction{
+    self.shareView = [[ShareView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
 }
 
 - (void)awakeFromNib {
