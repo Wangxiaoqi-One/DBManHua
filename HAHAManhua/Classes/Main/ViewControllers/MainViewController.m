@@ -13,8 +13,9 @@
 #import "classView.h"
 #import "TableViewCell.h"
 #import "BaozouMHViewController.h"
+#import "CommentsViewController.h"
 
-@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
+@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate, Comments>
 
 {
     NSInteger _pagecount;
@@ -49,7 +50,6 @@
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = rightBarBtn;
     
-    
     //leftButton
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 60, 44);
@@ -81,6 +81,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.model = self.listArray[indexPath.row];
+    cell.delegate = self;
     return cell;
 }
 
@@ -255,6 +256,13 @@
     }
     [self.tableView launchRefreshing];
     [self rightBtnAction:btn];
+}
+
+- (void)showComments:(NSString *)user_id{
+    CommentsViewController *commentsVC = [[CommentsViewController alloc] init];
+    commentsVC.user_id = user_id;
+    [self.navigationController pushViewController:commentsVC animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

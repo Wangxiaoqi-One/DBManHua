@@ -9,6 +9,7 @@
 #import "TableViewCell.h"
 #import <UIImageView+WebCache.h>
 #import "ShareView.h"
+#import "SqliteManager.h"
 
 #define kwidth (kScreenWidth - 6)/ 5
 
@@ -33,6 +34,8 @@
 @property (strong, nonatomic) UIView *btnsView;
 
 @property (strong, nonatomic) ShareView *shareView;
+
+@property (copy, nonatomic) NSString *user_id;
 
 @end
 
@@ -68,7 +71,7 @@
         self.userView.backgroundColor = [UIColor whiteColor];
         self.user_ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
         [self.userView addSubview:self.user_ImageView];
-        self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.user_ImageView.right, 0, 290, 30)];
+        self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.user_ImageView.right, 0, 250, 30)];
         self.userNameLabel.font = [UIFont systemFontOfSize:20];
         [self.userView addSubview:self.userNameLabel];
         [self.userView addSubview:self.creatTimeLabel];
@@ -92,7 +95,7 @@
 
 - (UILabel *)creatTimeLabel{
     if (_creatTimeLabel == nil) {
-        self.creatTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.user_ImageView.right, self.userNameLabel.bottom, 290, 14)];
+        self.creatTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.user_ImageView.right, self.userNameLabel.bottom, 250, 14)];
         self.creatTimeLabel.font = [UIFont systemFontOfSize:12];
         self.creatTimeLabel.textColor = [UIColor lightGrayColor];
     }
@@ -103,9 +106,12 @@
 - (UIButton *)rmbBtn{
     if (_rmbBtn == nil) {
         self.rmbBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.rmbBtn.frame = CGRectMake(self. userNameLabel.right, 0, 25, 44);
+        self.rmbBtn.frame = CGRectMake(self. userNameLabel.right, 0, 70, 44);
         [self.rmbBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        self.rmbBtn.imageView.image = [UIImage imageNamed:@"reward_btn"];
+        [self.rmbBtn setImage:[UIImage imageNamed:@"reward_btn"] forState:UIControlStateNormal];
+        self.rmbBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 35, 0, 0);
+        self.rmbBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -36, 0, 0);
+        self.rmbBtn.titleLabel.font = [UIFont systemFontOfSize:13.0];
     }
     return _rmbBtn;
 }
@@ -135,6 +141,7 @@
         self.commentsBtn.frame = CGRectMake(self. negBtn.right, 0, kwidth, 44);
         [self.commentsBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [self.commentsBtn setImage:[UIImage imageNamed:@"button_comment"] forState:UIControlStateNormal];
+        [self.commentsBtn addTarget:self action:@selector(commentsDetail) forControlEvents:UIControlEventTouchUpInside];
     }
     return _commentsBtn;
 }
@@ -145,6 +152,7 @@
         self.favoriteBtn.frame = CGRectMake(self. commentsBtn.right, 0, kwidth, 44);
         [self.favoriteBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [self.favoriteBtn setImage:[UIImage imageNamed:@"bookmark_btn"] forState:UIControlStateNormal];
+        [self.favoriteBtn addTarget:self action:@selector(collectionAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _favoriteBtn;
 }
@@ -161,6 +169,7 @@
 }
 
 - (void)setModel:(MainModel *)model{
+    self.user_id = model.user_id;
     self.titleLabel.text = model.content;
     CGFloat height = [model.height floatValue];
     self.picturesView.frame = CGRectMake(8, self.titleLabel.bottom, kScreenWidth - 16, height);
@@ -186,6 +195,19 @@
 
 - (void)shareBtnAction{
     self.shareView = [[ShareView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+}
+
+- (void)commentsDetail{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(showComments:)]) {
+        [self.delegate showComments:self.user_id];
+    }
+}
+
+- (void)collectionAction{
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user != nil) {
+        NSDictionary *dic = @{@"user_login": self.userNameLabel.text, @"title":self.titleLabel.text, @"user_avatar": @"", @"created_at": self.creatTimeLabel.text, @"pictures":self.picturesView, @"neg":self.negBtn.titleLabel.text, @"pos":@"", @"reward_count":@"", @"public_comments_count":@""};
+    }
 }
 
 - (void)awakeFromNib {

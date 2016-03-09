@@ -46,6 +46,7 @@
     self.creat_time.text = str;
     self.contentLabel.numberOfLines = 0;
     self.contentLabel.text = model.content;
+    [self.posBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.posBtn setTitle:[NSString stringWithFormat:@"%@", model.pos] forState:UIControlStateNormal];
 }
 

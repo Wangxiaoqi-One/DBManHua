@@ -26,8 +26,9 @@
 #define kYingYuanTwo @"http://ibaozou.com/series/%@/articles/page/%ld.app?client_id=10230158&ignore_for_mobile=true"
 //评论
 #define kComments @"http://ibaozou.com/articles/%@/comments/1/100.app?client_id=10230158&order=desc"
-
 //下载
 #define kDownLoad @"http://ibaozou.com/groups/19/outlineinfo/1/999/1.app?year=%@&month=%@&client_id=10230158"
+
+#define kmmm @"http://ibaozou.com/articles/%@/comments/1/100.app?client_id=10230158&order=desc"
 
 #endif /* HADefine_h */

@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import <BmobSDK/Bmob.h>
 #import "WeiboSDK.h"
+#import "WXApi.h"
 
-@interface AppDelegate ()<WeiboSDKDelegate>
+@interface AppDelegate ()<WeiboSDKDelegate, WXApiDelegate>
 
 @end
 
@@ -27,6 +28,8 @@
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kWeiBoKey];
     
+    //微信
+    [WXApi registerApp:kWeiXinKey];
     
     [Bmob registerWithAppKey:@"ef279c4d2afe1f0701f0b9b823cd1565"];
     // Override point for customization after application launch.
@@ -73,11 +76,11 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [WeiboSDK handleOpenURL:url delegate:self];
+    return [WeiboSDK handleOpenURL:url delegate:self] | [WXApi handleOpenURL:url delegate:self];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WeiboSDK handleOpenURL:url delegate:self];
+    return [WeiboSDK handleOpenURL:url delegate:self] | [WXApi handleOpenURL:url delegate:self];
 }
 
 @end

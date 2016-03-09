@@ -21,7 +21,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *user_login;
 @property (nonatomic, copy) NSString *user_avatar;
-
+@property (nonatomic, copy) NSString *user_id;
 - (instancetype)initWithDic:(NSDictionary *)dic;
 
 @end

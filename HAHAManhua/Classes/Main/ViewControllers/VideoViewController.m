@@ -22,6 +22,7 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.translucent = NO;
     [self showBackBtn];
+    [self showTitleImageView];
     
 }
 

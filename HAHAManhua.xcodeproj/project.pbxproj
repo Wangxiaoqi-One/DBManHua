@@ -11,6 +11,9 @@
 		7A45B0381C8918B30069369A /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45B0371C8918B30069369A /* MainModel.m */; };
 		7A45B0511C8969FE0069369A /* UIViewController+common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45B0501C8969FE0069369A /* UIViewController+common.m */; };
 		7A45B0561C8977B20069369A /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45B0551C8977B20069369A /* WebP.framework */; };
+		7A47AC7C1C8FBFF8006E5CC8 /* ManHuaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A47AC7B1C8FBFF8006E5CC8 /* ManHuaViewController.m */; };
+		7A47ACC61C90066D006E5CC8 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A47ACC51C90066D006E5CC8 /* CommentsViewController.m */; };
+		7A47AD531C9042D7006E5CC8 /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A47AD521C9042D7006E5CC8 /* SqliteManager.m */; };
 		7A6ACE3D1C8CFEE2009CDA01 /* YingYuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE3C1C8CFEE2009CDA01 /* YingYuanModel.m */; };
 		7A6ACE401C8D0ECC009CDA01 /* TwoYingYuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6ACE3F1C8D0ECC009CDA01 /* TwoYingYuanViewController.m */; };
 		7A6ACE421C8D1735009CDA01 /* TwoMovies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A6ACE411C8D1735009CDA01 /* TwoMovies.plist */; };
@@ -87,6 +90,12 @@
 		7A45B04F1C8969FE0069369A /* UIViewController+common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+common.h"; sourceTree = "<group>"; };
 		7A45B0501C8969FE0069369A /* UIViewController+common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+common.m"; sourceTree = "<group>"; };
 		7A45B0551C8977B20069369A /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		7A47AC7A1C8FBFF8006E5CC8 /* ManHuaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManHuaViewController.h; sourceTree = "<group>"; };
+		7A47AC7B1C8FBFF8006E5CC8 /* ManHuaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManHuaViewController.m; sourceTree = "<group>"; };
+		7A47ACC41C90066D006E5CC8 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		7A47ACC51C90066D006E5CC8 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		7A47AD511C9042D7006E5CC8 /* SqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteManager.h; sourceTree = "<group>"; };
+		7A47AD521C9042D7006E5CC8 /* SqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteManager.m; sourceTree = "<group>"; };
 		7A6ACE3B1C8CFEE2009CDA01 /* YingYuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYuanModel.h; sourceTree = "<group>"; };
 		7A6ACE3C1C8CFEE2009CDA01 /* YingYuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYuanModel.m; sourceTree = "<group>"; };
 		7A6ACE3E1C8D0ECC009CDA01 /* TwoYingYuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoYingYuanViewController.h; sourceTree = "<group>"; };
@@ -356,6 +365,8 @@
 			children = (
 				7AC42CC51C8EEB18006117FA /* DownloadViewController.h */,
 				7AC42CC61C8EEB18006117FA /* DownloadViewController.m */,
+				7A47AC7A1C8FBFF8006E5CC8 /* ManHuaViewController.h */,
+				7A47AC7B1C8FBFF8006E5CC8 /* ManHuaViewController.m */,
 			);
 			path = ViewControlleres;
 			sourceTree = "<group>";
@@ -447,6 +458,8 @@
 				7A6ACE551C8D5FDF009CDA01 /* comments.plist */,
 				7A6ACE571C8D6E5C009CDA01 /* DetailModel.h */,
 				7A6ACE581C8D6E5C009CDA01 /* DetailModel.m */,
+				7A47AD511C9042D7006E5CC8 /* SqliteManager.h */,
+				7A47AD521C9042D7006E5CC8 /* SqliteManager.m */,
 			);
 			path = Modeles;
 			sourceTree = "<group>";
@@ -468,6 +481,8 @@
 				7A6ACE5B1C8D8A3A009CDA01 /* VideoViewController.m */,
 				7A6ACE5D1C8D9F95009CDA01 /* SetViewController.h */,
 				7A6ACE5E1C8D9F95009CDA01 /* SetViewController.m */,
+				7A47ACC41C90066D006E5CC8 /* CommentsViewController.h */,
+				7A47ACC51C90066D006E5CC8 /* CommentsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -694,6 +709,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A47AD531C9042D7006E5CC8 /* SqliteManager.m in Sources */,
 				7A6ACE451C8D17D4009CDA01 /* TwoMoviesModel.m in Sources */,
 				7AF931F91C882AE200BC4CE5 /* AppDelegate.m in Sources */,
 				7AC42C711C8E50C6006117FA /* DetailTableViewCell.m in Sources */,
@@ -710,6 +726,7 @@
 				7AC42C831C8E7538006117FA /* RegisterViewController.m in Sources */,
 				7A8A4AD11C8ADF450042E440 /* TableViewCell.m in Sources */,
 				7AF9322F1C88443300BC4CE5 /* VOContentLayer.m in Sources */,
+				7A47ACC61C90066D006E5CC8 /* CommentsViewController.m in Sources */,
 				7A6ACE491C8D2054009CDA01 /* TwoTableViewCell.m in Sources */,
 				7A8A4ACE1C8AB1580042E440 /* classView.m in Sources */,
 				7AC42C771C8E65CB006117FA /* ProgressHUD.m in Sources */,
@@ -720,6 +737,7 @@
 				7AC42CBE1C8EC7D2006117FA /* README.md in Sources */,
 				7AF932311C88443300BC4CE5 /* VOSegment.m in Sources */,
 				7AF932321C88443300BC4CE5 /* VOSegmentedControl.m in Sources */,
+				7A47AC7C1C8FBFF8006E5CC8 /* ManHuaViewController.m in Sources */,
 				7A6ACE401C8D0ECC009CDA01 /* TwoYingYuanViewController.m in Sources */,
 				7AE6D8781C8C4ECE00116BDA /* BaouYingYuanViewController.m in Sources */,
 				7AC42CD11C8EFD87006117FA /* DownloadModel.m in Sources */,

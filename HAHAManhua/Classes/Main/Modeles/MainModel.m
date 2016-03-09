@@ -25,6 +25,7 @@
         self.title = dic[@"title"];
         self.user_login = dic[@"user_login"];
         self.user_avatar = dic[@"user_avatar"];
+        self.user_id = dic[@"id"];
     }
     return self;
 }

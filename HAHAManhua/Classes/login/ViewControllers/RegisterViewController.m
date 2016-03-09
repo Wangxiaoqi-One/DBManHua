@@ -63,7 +63,15 @@
     [buser setEmail:self.user_email.text];
     [buser signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
-            [ProgressHUD showSuccess:@"注册成功"];
+            BmobUser *user = [BmobUser getCurrentUser];
+            //应用开启了邮箱验证功能
+            if ([user objectForKey:@"emailVerified"]) {
+                //用户没验证过邮箱
+                if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                    [user verifyEmailInBackgroundWithEmailAddress:self.user_email.text];
+                    [ProgressHUD showSuccess:@"注册成功"];
+                }
+            }
             NSLog(@"注册成功");
         }else{
             [ProgressHUD showError:@"注册失败"];
@@ -95,13 +103,15 @@
         [self.navigationController presentViewController:alertController animated:YES completion:nil];
         return NO;
     }
-    //手机号验证
-    _emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", _emailRegex];
-    BOOL email =[emailTest evaluateWithObject:self.user_email.text];
-    return email;
+    return [self validateEmail:self.user_email.text];
 
-    
+}
+
+- (BOOL)validateEmail:(NSString *)email{
+    //判断是否是邮箱
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
 }
 
 @end
