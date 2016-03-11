@@ -13,40 +13,37 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="150" height="166"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ruI-Us-9fn">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="160"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ruI-Us-9fn">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="166"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-tl-vxz">
-                        <rect key="frame" x="0.0" y="128" width="116" height="32"/>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-tl-vxz">
+                        <rect key="frame" x="0.0" y="128" width="150" height="32"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="5kh-n7-sSE"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8z-Gk-g8S">
-                        <rect key="frame" x="115" y="128" width="35" height="33"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <state key="normal" image="my_down_load_img_normal"/>
-                    </button>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lhc-m5-8gs">
-                        <rect key="frame" x="0.0" y="126" width="150" height="2"/>
-                        <color key="progressTintColor" red="1" green="0.030647079340000001" blue="0.072125009030000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </progressView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ImI-tl-vxz" secondAttribute="bottom" constant="6" id="1d0-Sj-iRz"/>
+                <constraint firstItem="ruI-Us-9fn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Cal-ih-Mni"/>
+                <constraint firstItem="ImI-tl-vxz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RQl-HC-QCn"/>
+                <constraint firstAttribute="bottom" secondItem="ruI-Us-9fn" secondAttribute="bottom" id="T3f-5Y-mjm"/>
+                <constraint firstItem="ruI-Us-9fn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dc7-aY-DgY"/>
+                <constraint firstAttribute="trailing" secondItem="ImI-tl-vxz" secondAttribute="trailing" id="nJL-R2-mbd"/>
+                <constraint firstAttribute="trailing" secondItem="ruI-Us-9fn" secondAttribute="trailing" id="zao-gx-je8"/>
+            </constraints>
             <size key="customSize" width="150" height="160"/>
             <connections>
-                <outlet property="downloadBtn" destination="h8z-Gk-g8S" id="Nx4-O1-M6A"/>
                 <outlet property="pictures" destination="ruI-Us-9fn" id="8Nf-KM-EKj"/>
-                <outlet property="progress" destination="lhc-m5-8gs" id="P3e-9m-wh6"/>
                 <outlet property="timeLabel" destination="ImI-tl-vxz" id="fQ6-FD-eRt"/>
             </connections>
             <point key="canvasLocation" x="373" y="400"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="my_down_load_img_normal" width="32" height="34"/>
-    </resources>
 </document>

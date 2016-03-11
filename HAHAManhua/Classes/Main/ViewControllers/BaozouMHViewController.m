@@ -45,6 +45,8 @@
     BmobUser *user = [BmobUser getCurrentUser];
     if (user != nil) {
         [self.loginStatusBtn setTitle:user.username forState:UIControlStateNormal];
+    }else{
+        [self.loginStatusBtn setTitle:@"未登录" forState:UIControlStateNormal];
     }
 }
 

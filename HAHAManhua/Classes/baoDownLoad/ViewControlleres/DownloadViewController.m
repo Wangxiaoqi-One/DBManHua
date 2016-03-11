@@ -47,7 +47,7 @@ static NSString *currentMonth;
     // Do any additional setup after loading the view.
     self.title = @"暴下载";
     [self showBackBtn];
-    [self showRightBtn];
+//    [self showRightBtn];
     [self getTImestamp];
     [self.view addSubview:self.collectionView];
     [self requestModel3];
@@ -152,18 +152,18 @@ static NSString *currentMonth;
 #pragma mark ----------UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSLog(@"%@", filePath);
-    DownloadModel *model = self.listArray[indexPath.row];
-    NSString *fileName = [filePath stringByAppendingPathComponent:model.zip_name];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:fileName]) {
-        ManHuaViewController *manhuaVC = [[ManHuaViewController alloc] init];
-        manhuaVC.filePath = fileName;
-        [self.navigationController pushViewController:manhuaVC animated:YES];
-    }else{
-        return;
-    }
+//    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSLog(@"%@", filePath);
+//    DownloadModel *model = self.listArray[indexPath.row];
+//    NSString *fileName = [filePath stringByAppendingPathComponent:model.zip_name];
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    if ([fileManager fileExistsAtPath:fileName]) {
+//        ManHuaViewController *manhuaVC = [[ManHuaViewController alloc] init];
+//        manhuaVC.filePath = fileName;
+//        [self.navigationController pushViewController:manhuaVC animated:YES];
+//    }else{
+//        return;
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

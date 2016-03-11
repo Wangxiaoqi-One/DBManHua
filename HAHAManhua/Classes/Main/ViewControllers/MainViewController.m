@@ -68,7 +68,7 @@
     //网络请求
 //    [self requestModel];
     [self.tableView launchRefreshing];
-
+    [self addshoushi];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -201,6 +201,10 @@
 }
 
 - (void)leftBtnClickAction:(UIButton *)btn{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.cv.frame = CGRectMake(kScreenWidth, 0, 200, kScreenHeight - 64);
+            show_Hiden = YES;
+        }];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -270,6 +274,20 @@
     UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"login" bundle:nil];
     UINavigationController *loginNav = [loginSB instantiateInitialViewController];
     [self.navigationController presentViewController:loginNav animated:NO completion:nil];
+}
+
+- (void)addshoushi{
+        UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+        //设置方向，水平方向
+        swipe.direction = UISwipeGestureRecognizerDirectionRight;
+        [self.view addGestureRecognizer:swipe];
+}
+
+- (void)swipe:(UISwipeGestureRecognizer *)gesture{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.cv.frame = CGRectMake(kScreenWidth, 0, 200, kScreenHeight - 64);
+        show_Hiden = YES;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

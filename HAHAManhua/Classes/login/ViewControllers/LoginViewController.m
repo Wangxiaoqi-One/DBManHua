@@ -64,7 +64,13 @@
 
 - (IBAction)loginBtnAction:(UIButton *)sender {
     [BmobUser loginWithUsernameInBackground:self.user_name.text password:self.user_password.text block:^(BmobUser *user, NSError *error) {
-        [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+        if (user != nil) {
+            [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+        }else if (error != nil){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"登录失败，请确保密码或账号输入正确" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+        }
+
     }];
 }
 @end

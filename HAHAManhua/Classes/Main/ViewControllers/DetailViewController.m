@@ -96,10 +96,10 @@
 #pragma mark -------CustomMethod
 
 - (void)configHeaderView{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 130)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 137)];
     headerView.backgroundColor = [UIColor whiteColor];
     UIButton *bofangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    bofangBtn.frame = CGRectMake(264, 92, 103, 37);
+    bofangBtn.frame = CGRectMake(kScreenWidth * 3 / 4, 100, kScreenWidth / 4, 37);
     [bofangBtn setTitle:@"立即播放" forState:UIControlStateNormal];
     bofangBtn.backgroundColor = [UIColor redColor];
     [bofangBtn addTarget:self action:@selector(bofangAction) forControlEvents:UIControlEventTouchUpInside];
@@ -154,28 +154,28 @@
 //首图
 - (UIImageView *)moviesImageView{
     if (_moviesImageView == nil) {
-        self.moviesImageView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 8, 128, 67)];
+        self.moviesImageView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 8, kScreenWidth / 4 + 10, 67)];
     }
     return _moviesImageView;
 }
 //内容
 - (UILabel *)contentLabel{
     if (_contentLabel == nil) {
-        self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(144, 8, 233, 67)];
+        self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.moviesImageView.right, 8, kScreenWidth - kScreenWidth / 4 - 26, 67)];
     }
     return _contentLabel;
 }
 //类型
 - (UIImageView *)typeImageView{
     if (_typeImageView == nil) {
-        self.typeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 92, 21, 21)];
+        self.typeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(8, self.moviesImageView.bottom + 25, (kScreenWidth / 4 + 10) / 5, (kScreenWidth / 4 + 10) / 5)];
     }
     return _typeImageView;
 }
 //类型
 - (UILabel *)typeLabel{
     if (_typeLabel == nil) {
-        self.typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(29, 92, 107, 21)];
+        self.typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.typeImageView.right, self.moviesImageView.bottom + 25, 120, (kScreenWidth / 4 + 10) / 5)];
     }
     return _typeLabel;
 }
@@ -183,7 +183,7 @@
 - (UIButton *)posBtn{
     if (_posBtn == nil) {
         self.posBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.posBtn.frame = CGRectMake(8, 115, 57, 14);
+        self.posBtn.frame = CGRectMake(8, self.typeImageView.bottom, 80, 14);
         [self.posBtn setImage:[UIImage imageNamed:@"serie_button_ding"] forState:UIControlStateNormal];
         [self.posBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     }
@@ -193,7 +193,7 @@
 - (UIButton *)commentsBtn{
     if (_commentsBtn == nil) {
         self.commentsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.commentsBtn.frame = CGRectMake(78, 115, 57, 14);
+        self.commentsBtn.frame = CGRectMake(self.posBtn.right, self.typeImageView.bottom, 80, 14);
         [self.commentsBtn setImage:[UIImage imageNamed:@"serie_button_comm"] forState:UIControlStateNormal];
         [self.commentsBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         

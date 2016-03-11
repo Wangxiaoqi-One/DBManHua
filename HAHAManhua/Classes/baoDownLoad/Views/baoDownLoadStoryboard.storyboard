@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Download View Controller-->
@@ -17,29 +18,55 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bookshop_top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="sER-L3-Cff">
-                                <rect key="frame" x="1" y="0.0" width="375" height="140"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookshop_top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="sER-L3-Cff">
+                                <rect key="frame" x="-3" y="0.0" width="383" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="me5-Ar-3HJ"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ec-Go-GCd">
-                                <rect key="frame" x="0.0" y="148" width="130" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ec-Go-GCd">
+                                <rect key="frame" x="0.0" y="140" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="GOH-eo-BRC"/>
+                                    <constraint firstAttribute="height" constant="44" id="um1-eY-RrU"/>
+                                </constraints>
                                 <state key="normal" image="previous_month_btn_normal"/>
                                 <connections>
                                     <action selector="previousBtnAction:" destination="kY6-cL-8rT" eventType="touchUpInside" id="jci-ju-uY3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V74-aO-G7t">
-                                <rect key="frame" x="260" y="148" width="115" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V74-aO-G7t">
+                                <rect key="frame" x="295" y="140" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="CXu-YK-Qwx"/>
+                                    <constraint firstAttribute="width" constant="80" id="IoS-sh-KOR"/>
+                                </constraints>
                                 <state key="normal" image="next_month_btn_normal"/>
                                 <connections>
                                     <action selector="nextBtnAction:" destination="kY6-cL-8rT" eventType="touchUpInside" id="Doe-fs-4nU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrQ-c8-PKU">
-                                <rect key="frame" x="138" y="148" width="114" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrQ-c8-PKU">
+                                <rect key="frame" x="124" y="140" width="130" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="AxW-wL-3mq"/>
+                                    <constraint firstAttribute="width" constant="130" id="GIt-nt-nih"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IrQ-c8-PKU" firstAttribute="centerX" secondItem="sER-L3-Cff" secondAttribute="centerX" id="AB8-xK-s1L"/>
+                            <constraint firstAttribute="trailing" secondItem="V74-aO-G7t" secondAttribute="trailing" id="D8z-Qr-1AK"/>
+                            <constraint firstItem="8Ec-Go-GCd" firstAttribute="top" secondItem="sER-L3-Cff" secondAttribute="bottom" id="a8c-rF-ESZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sER-L3-Cff" secondAttribute="trailing" constant="-21" id="bwW-hc-eHC"/>
+                            <constraint firstItem="sER-L3-Cff" firstAttribute="leading" secondItem="G3q-en-gSs" secondAttribute="leadingMargin" constant="-19" id="etB-9Y-Zv9"/>
+                            <constraint firstItem="V74-aO-G7t" firstAttribute="top" secondItem="sER-L3-Cff" secondAttribute="bottom" id="fVx-mL-hsg"/>
+                            <constraint firstItem="sER-L3-Cff" firstAttribute="top" secondItem="yBo-Im-ahR" secondAttribute="bottom" id="gO2-2D-Eav"/>
+                            <constraint firstItem="IrQ-c8-PKU" firstAttribute="centerY" secondItem="8Ec-Go-GCd" secondAttribute="centerY" id="jL0-jy-nhk"/>
+                            <constraint firstItem="8Ec-Go-GCd" firstAttribute="leading" secondItem="G3q-en-gSs" secondAttribute="leading" id="qFL-RA-6Sv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Hw-de-Rs4"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

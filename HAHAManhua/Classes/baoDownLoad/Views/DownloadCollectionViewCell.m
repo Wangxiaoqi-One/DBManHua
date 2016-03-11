@@ -11,12 +11,12 @@
 #import <AFNetworking.h>
 
 @interface DownloadCollectionViewCell ()<NSURLConnectionDataDelegate>
-@property (strong, nonatomic) IBOutlet UIProgressView *progress;
+//@property (strong, nonatomic) IBOutlet UIProgressView *progress;
 
 @property (strong, nonatomic) IBOutlet UIImageView *pictures;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
-@property (strong, nonatomic) IBOutlet UIButton *downloadBtn;
+//@property (strong, nonatomic) IBOutlet UIButton *downloadBtn;
 
 @property (copy, nonatomic) NSString *zip_url;
 @property (copy, nonatomic) NSString *zip_name;
@@ -39,8 +39,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [self.downloadBtn addTarget:self action:@selector(downloadBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    self.progress.hidden = YES;
+//    [self.downloadBtn addTarget:self action:@selector(downloadBtnAction) forControlEvents:UIControlEventTouchUpInside];
+//    self.progress.hidden = YES;
 }
 
 - (void)downloadBtnAction{
@@ -84,7 +84,7 @@
     //3.创建写数据的文件句柄
     self.writeHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
     //4.获取完整的文件的长度
-    self.sumlength = response.expectedContentLength;
+//    self.sumlength = response.expectedContentLength;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
@@ -92,8 +92,8 @@
     self.currentLength += data.length;
     
     //计算当前进度
-    double progress =(double)self.currentLength / self.sumlength;
-    self.progress.progress = progress;
+//    double progress =(double)self.currentLength / self.sumlength;
+//    self.progress.progress = progress;
     //一点一点接收数据
 //    WXQLog(@"%ld", data.length);
     //把data写入到创建的空文件中，但是不能使用writetoFile(会覆盖)
@@ -106,8 +106,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
     NSLog(@"下载完毕");
-    self.progress.progress = 0;
-    self.progress.hidden = YES;
+//    self.progress.progress = 0;
+//    self.progress.hidden = YES;
     //关闭连接，不在输入数据在文件中
     [self.writeHandle closeFile];
     
