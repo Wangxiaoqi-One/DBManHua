@@ -64,8 +64,7 @@
 
 - (IBAction)loginBtnAction:(UIButton *)sender {
     [BmobUser loginWithUsernameInBackground:self.user_name.text password:self.user_password.text block:^(BmobUser *user, NSError *error) {
-        WXQLog(@"%@", user);
-        WXQLog(@"%@", error);
+        [self.navigationController dismissViewControllerAnimated:NO completion:nil];
     }];
 }
 @end

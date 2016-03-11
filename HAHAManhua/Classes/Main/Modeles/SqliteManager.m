@@ -117,8 +117,9 @@ NSString *sql = [NSString stringWithFormat:@"INSERT INTO a%@ (name, title, user_
 - (void)deleteWithpicture:(NSString *)picture{
     [self openDataBase];
     sqlite3_stmt *stmt = nil;
+    BmobUser *user = [BmobUser getCurrentUser];
     //sql语句
-    NSString *sql = [NSString stringWithFormat:@"delete from %@ where name = ?", _user.username];
+    NSString *sql = [NSString stringWithFormat:@"delete from a%@ where name = ?", user.username];
     //验证SQL语句
     int result = sqlite3_prepare_v2(dataBase, [sql UTF8String], -1, &stmt, nil);
     if (result == SQLITE_OK) {

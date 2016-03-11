@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;
 @property (strong, nonatomic) IBOutlet UIButton *clearCacheBtn;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UILabel *piturescache;
 
@@ -35,6 +36,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"设置";
     [self showBackBtn];
+    self.scrollView.contentSize = CGSizeMake(kScreenWidth, kScreenHeight + 2);
     [self.clearCacheBtn addTarget:self action:@selector(clearPicturesCache) forControlEvents:UIControlEventTouchUpInside];
     [self.loginBtn addTarget:self action:@selector(loginbtnAction) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -46,6 +48,10 @@
     NSInteger cacheSize = [cache getSize];
     NSString *cacheStr = [NSString stringWithFormat:@"图片缓存(%02fM)", (float)cacheSize/1024/1024];
     self.piturescache.text = cacheStr;
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user != nil) {
+        [self.loginBtn setTitle:user.username forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark ------CustomMethod

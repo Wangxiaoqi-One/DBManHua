@@ -42,6 +42,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user != nil) {
+        [self.loginStatusBtn setTitle:user.username forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark ----Lazyloading

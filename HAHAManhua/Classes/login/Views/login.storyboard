@@ -112,7 +112,7 @@
                                 <rect key="frame" x="0.0" y="194" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="GXM-Fg-uSk" id="lPN-FT-9Hq"/>
                                 </connections>
@@ -121,7 +121,7 @@
                                 <rect key="frame" x="0.0" y="246" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="GXM-Fg-uSk" id="YTf-sf-Iaj"/>
                                 </connections>

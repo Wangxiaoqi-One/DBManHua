@@ -83,7 +83,6 @@
     
     //3.创建写数据的文件句柄
     self.writeHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
-    
     //4.获取完整的文件的长度
     self.sumlength = response.expectedContentLength;
 }

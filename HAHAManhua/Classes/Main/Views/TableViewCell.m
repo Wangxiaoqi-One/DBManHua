@@ -178,8 +178,10 @@
     self.high = [NSString stringWithFormat:@"%@", model.height];
     CGFloat height = [model.height floatValue];
     self.picturesView.frame = CGRectMake(8, self.titleLabel.bottom, kScreenWidth - 16, height);
+    self.picture = model.pictures;
     [self.picturesView sd_setImageWithURL:[NSURL URLWithString:model.pictures] completed:nil];
     self.userView.frame = CGRectMake(8, self.picturesView.bottom, kScreenWidth - 16, 44);
+    self.user_avart = model.user_avatar;
     [self.user_ImageView sd_setImageWithURL:[NSURL URLWithString:model.user_avatar] completed:nil];
     self.userNameLabel.text = model.user_login;
     self.creatTimeLabel.text = model.published_at;
@@ -189,7 +191,9 @@
     [self.negBtn setTitle:[NSString stringWithFormat:@"%@", model.neg] forState:UIControlStateNormal];
     [self.commentsBtn setTitle:[NSString stringWithFormat:@"%@", model.public_comments_count] forState:UIControlStateNormal];
     [self.favoriteBtn setTitle:[NSString stringWithFormat:@"收藏"] forState:UIControlStateNormal];
+    [self.favoriteBtn setHidden:NO];
     [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
+    [self.shareBtn setHidden:NO];
 }
 
 -(void)setDic:(NSDictionary *)dic{
@@ -208,8 +212,8 @@
     [self.posBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"pos"]] forState:UIControlStateNormal];
     [self.negBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"neg"]] forState:UIControlStateNormal];
     [self.commentsBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"public_comments_count"]] forState:UIControlStateNormal];
-    [self.favoriteBtn setTitle:[NSString stringWithFormat:@"收藏"] forState:UIControlStateNormal];
-    [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
+    [self.favoriteBtn setHidden:YES];
+    [self.shareBtn setHidden:YES];
 }
 
 
@@ -238,7 +242,7 @@
 - (void)collectionAction{
     BmobUser *user = [BmobUser getCurrentUser];
     if (user != nil) {
-        NSDictionary *dic = @{@"user_login": self.userNameLabel.text, @"title":self.titleLabel.text, @"user_avatar": self.user_avart, @"created_at": self.creatTimeLabel.text, @"pictures":self.picture, @"neg":self.negBtn.titleLabel.text, @"pos":self.posBtn.titleLabel.text, @"reward_count":self.rmbBtn.titleLabel.text, @"public_comments_count":self.negBtn.titleLabel.text, @"height":self.high};
+        NSDictionary *dic = @{@"user_login": self.userNameLabel.text, @"title":self.titleLabel.text, @"user_avatar": self.user_avart, @"created_at": self.creatTimeLabel.text, @"pictures":self.picture, @"neg":self.negBtn.titleLabel.text, @"pos":self.posBtn.titleLabel.text, @"reward_count":self.rmbBtn.titleLabel.text, @"public_comments_count":self.commentsBtn.titleLabel.text, @"height":self.high};
         for (NSString *str in [dic allValues]) {
             WXQLog(@"%@", str);
         }
