@@ -30,4 +30,8 @@
 
 - (void)deleteWithpicture:(NSString *)picture;
 
+//查询所有数据
+
+- (NSMutableArray *)selectAllcollection;
+
 @end

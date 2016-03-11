@@ -37,6 +37,10 @@
 
 @property (copy, nonatomic) NSString *user_id;
 
+@property (copy, nonatomic) NSString *high;
+@property (copy, nonatomic) NSString *user_avart;
+@property (copy, nonatomic) NSString *picture;
+
 @end
 
 @implementation TableViewCell
@@ -171,6 +175,7 @@
 - (void)setModel:(MainModel *)model{
     self.user_id = model.user_id;
     self.titleLabel.text = model.content;
+    self.high = [NSString stringWithFormat:@"%@", model.height];
     CGFloat height = [model.height floatValue];
     self.picturesView.frame = CGRectMake(8, self.titleLabel.bottom, kScreenWidth - 16, height);
     [self.picturesView sd_setImageWithURL:[NSURL URLWithString:model.pictures] completed:nil];
@@ -187,8 +192,35 @@
     [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
 }
 
+-(void)setDic:(NSDictionary *)dic{
+    self.titleLabel.text = dic[@"title"];
+    CGFloat height = [dic[@"height"] floatValue];
+    
+    self.picturesView.frame = CGRectMake(8, self.titleLabel.bottom, kScreenWidth - 16, height);
+    WXQLog(@" %.2f----%@", height, dic[@"pictures"]);
+    [self.picturesView sd_setImageWithURL:[NSURL URLWithString:dic[@"pictures"]] completed:nil];
+    self.userView.frame = CGRectMake(8, self.picturesView.bottom, kScreenWidth - 16, 44);
+    [self.user_ImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"user_avatar"]] completed:nil];
+    self.userNameLabel.text = dic[@"user_login"];
+    self.creatTimeLabel.text = dic[@"created_at"];
+    self.btnsView.frame = CGRectMake(5, self.userView.bottom, kScreenWidth - 10, 44);
+    [self.rmbBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"reward_count"]] forState:UIControlStateNormal];
+    [self.posBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"pos"]] forState:UIControlStateNormal];
+    [self.negBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"neg"]] forState:UIControlStateNormal];
+    [self.commentsBtn setTitle:[NSString stringWithFormat:@"%@", dic[@"public_comments_count"]] forState:UIControlStateNormal];
+    [self.favoriteBtn setTitle:[NSString stringWithFormat:@"收藏"] forState:UIControlStateNormal];
+    [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
+}
+
+
 - (CGFloat)getcellHeight:(MainModel *)model{
     CGFloat mheight = [model.height floatValue];
+    CGFloat height = mheight + 135;
+    return height;
+}
+
+-(CGFloat)getcellHeights:(NSDictionary *)dic{
+    CGFloat mheight = [dic[@"height"] floatValue];
     CGFloat height = mheight + 135;
     return height;
 }
@@ -206,9 +238,22 @@
 - (void)collectionAction{
     BmobUser *user = [BmobUser getCurrentUser];
     if (user != nil) {
-        NSDictionary *dic = @{@"user_login": self.userNameLabel.text, @"title":self.titleLabel.text, @"user_avatar": @"", @"created_at": self.creatTimeLabel.text, @"pictures":self.picturesView, @"neg":self.negBtn.titleLabel.text, @"pos":@"", @"reward_count":@"", @"public_comments_count":@""};
+        NSDictionary *dic = @{@"user_login": self.userNameLabel.text, @"title":self.titleLabel.text, @"user_avatar": self.user_avart, @"created_at": self.creatTimeLabel.text, @"pictures":self.picture, @"neg":self.negBtn.titleLabel.text, @"pos":self.posBtn.titleLabel.text, @"reward_count":self.rmbBtn.titleLabel.text, @"public_comments_count":self.negBtn.titleLabel.text, @"height":self.high};
+        for (NSString *str in [dic allValues]) {
+            WXQLog(@"%@", str);
+        }
+        SqliteManager *sqlManager = [SqliteManager shareInstance];
+        [sqlManager openDataBase];
+        [sqlManager insertIntoDictonary:dic];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"特大喜讯" message:@"观众老爷已为你收藏好" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: nil];
+        [alert show];
+    }else{
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(collectionBtnAction)]) {
+            [self.delegate collectionBtnAction];
+        }
     }
 }
+
 
 - (void)awakeFromNib {
     // Initialization code

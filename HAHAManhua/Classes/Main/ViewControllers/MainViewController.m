@@ -265,6 +265,13 @@
     
 }
 
+
+- (void)collectionBtnAction{
+    UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    UINavigationController *loginNav = [loginSB instantiateInitialViewController];
+    [self.navigationController presentViewController:loginNav animated:NO completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

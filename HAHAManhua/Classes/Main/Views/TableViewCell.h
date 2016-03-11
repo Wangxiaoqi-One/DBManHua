@@ -20,8 +20,9 @@
 
 @property (strong, nonatomic) MainModel *model;
 
+@property (strong, nonatomic) NSDictionary *dic;
 - (CGFloat)getcellHeight:(MainModel *)model;
 
 @property (nonatomic, assign) id<Comments>delegate;
-
+- (CGFloat)getcellHeights:(NSDictionary *)dic;
 @end

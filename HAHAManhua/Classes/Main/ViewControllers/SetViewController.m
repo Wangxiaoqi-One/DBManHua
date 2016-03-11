@@ -10,6 +10,7 @@
 #import <SDWebImage/SDImageCache.h>
 #import "ProgressHUD.h"
 #import <MessageUI/MessageUI.h>
+#import "CollectionViewController.h"
 
 @interface SetViewController ()<MFMailComposeViewControllerDelegate>
 
@@ -21,6 +22,9 @@
 - (IBAction)updateBtn:(UIButton *)sender;
 - (IBAction)backAction:(UIButton *)sender;
 
+- (IBAction)collectionAction:(UIButton *)sender;
+
+- (IBAction)loginoutAction:(UIButton *)sender;
 
 @end
 
@@ -90,6 +94,22 @@
 
 - (IBAction)backAction:(UIButton *)sender {
     [self sendEmail];
+}
+
+- (IBAction)collectionAction:(UIButton *)sender {
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user != nil) {
+        CollectionViewController *collectionVC = [[CollectionViewController alloc] init];
+        [self.navigationController pushViewController:collectionVC animated:NO];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"你还没有登录，请登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+}
+
+- (IBAction)loginoutAction:(UIButton *)sender {
+    [BmobUser logout];
+    [self.loginBtn setTitle:@"未登陆" forState:UIControlStateNormal];
 }
 
 - (void)sendEmail{

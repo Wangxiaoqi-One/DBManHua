@@ -64,7 +64,7 @@ static sqlite3 *dataBase = nil;
 
 - (void)creatDataBaseTable{
     BmobUser *user = [BmobUser getCurrentUser];
-     NSString *sql = [NSString stringWithFormat:@"CREATE TABLE %@ (number INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, title TEXT NOT NULL, user_avatar TEXT NOT NULL, created_at TEXT NOT NULL, pictures TEXT, neg TEXT NOT NULL, pos TEXT NOT NULL, reward_count TEXT NOT NULL, public_comments_count TEXT NOT NULL)", user.username];
+     NSString *sql = [NSString stringWithFormat:@"CREATE TABLE a%@ (number INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, title TEXT NOT NULL, user_avatar TEXT NOT NULL, created_at TEXT NOT NULL, pictures TEXT, neg TEXT NOT NULL, pos TEXT NOT NULL, reward_count TEXT NOT NULL, public_comments_count TEXT NOT NULL, height TEXT NOT NULL)", user.username];
     int result = sqlite3_exec(dataBase, [sql UTF8String], nil, nil, nil);
     if (result == SQLITE_OK) {
         NSLog(@"OK");
@@ -90,8 +90,9 @@ static sqlite3 *dataBase = nil;
     //打开数据库
     [self openDataBase];
     sqlite3_stmt *stmt = nil;
+    BmobUser *user = [BmobUser getCurrentUser];
     //sql语句
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (name, title, user_avatar, created_at, pictures, neg, pos, reward_count, public_comments_count) values (?,?,?,?,?,?,?,?)", _user.username];
+NSString *sql = [NSString stringWithFormat:@"INSERT INTO a%@ (name, title, user_avatar, created_at, pictures, neg, pos, reward_count, public_comments_count, height) values (?,?,?,?,?,?,?,?,?,?)", user.username];
     
     int result = sqlite3_prepare_v2(dataBase, [sql UTF8String], -1, &stmt, nil);
     if (result == SQLITE_OK) {
@@ -104,6 +105,8 @@ static sqlite3 *dataBase = nil;
         sqlite3_bind_text(stmt, 7, [dic[@"pos"] UTF8String], -1, nil);
         sqlite3_bind_text(stmt, 8, [dic[@"reward_count"] UTF8String], -1, nil);
         sqlite3_bind_text(stmt, 9, [dic[@"public_comments_count"] UTF8String], -1, nil);
+        sqlite3_bind_text(stmt, 10, [[NSString stringWithFormat:@"%@", dic[@"height"]] UTF8String], -1, nil);
+        sqlite3_step(stmt);
     }else{
         WXQLog(@"sql语句有问题");
     }
@@ -129,11 +132,43 @@ static sqlite3 *dataBase = nil;
     sqlite3_finalize(stmt);
 }
 
-- (BmobUser *)user{
-    if (_user == nil) {
-        self.user = [BmobUser getCurrentUser];
+
+- (NSMutableArray *)selectAllcollection{
+    [self openDataBase];
+    sqlite3_stmt *stmt;
+    BmobUser *user = [BmobUser getCurrentUser];
+    NSString *sql = [NSString stringWithFormat:@"select * from a%@", user.username];
+    int result = sqlite3_prepare_v2(dataBase, [sql UTF8String], -1, &stmt, nil);
+    NSMutableArray *allArray = [NSMutableArray new];
+    if (result == SQLITE_OK) {
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            NSString *name = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 1)];
+            //            title, user_avatar, created_at, pictures, neg, pos, reward_count, public_comments_count
+            NSString *title = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 2)];
+            
+            NSString *user_avatar = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 3)];
+            
+            NSString *created_at = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 4)];
+            
+            NSString *pictures = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 5)];
+            
+            NSString *neg = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 6)];
+            
+            NSString *pos = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 7)];
+            NSString *reward_count = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 8)];
+            NSString *public_comments_count = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 9)];
+            NSString *height = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 10)];
+            NSDictionary *dic = @{@"user_login": name, @"title":title, @"user_avatar": user_avatar, @"created_at": created_at, @"pictures":pictures, @"neg":neg, @"pos":pos, @"reward_count":reward_count, @"public_comments_count":public_comments_count,@"height":height};
+            [allArray addObject:dic];
+        }
+        NSLog(@"PERFECT");
+        WXQLog(@"%lu", allArray.count);
+    }else{
+        NSLog(@"shhhhhhhhhhhh");
     }
-    return _user;
+    sqlite3_finalize(stmt);
+    return allArray;
 }
+
 
 @end

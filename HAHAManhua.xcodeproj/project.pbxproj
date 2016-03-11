@@ -59,6 +59,7 @@
 		7AC42CCD1C8EF78F006117FA /* DownloadCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC42CCB1C8EF78F006117FA /* DownloadCollectionViewCell.m */; };
 		7AC42CCE1C8EF78F006117FA /* DownloadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC42CCC1C8EF78F006117FA /* DownloadCollectionViewCell.xib */; };
 		7AC42CD11C8EFD87006117FA /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC42CD01C8EFD87006117FA /* DownloadModel.m */; };
+		7AD571021C9248FD00645059 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD571011C9248FD00645059 /* CollectionViewController.m */; };
 		7AE6D8751C8C210B00116BDA /* BaozouMHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D8741C8C210B00116BDA /* BaozouMHViewController.m */; };
 		7AE6D8781C8C4ECE00116BDA /* BaouYingYuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D8771C8C4ECE00116BDA /* BaouYingYuanViewController.m */; };
 		7AE6D87C1C8C589600116BDA /* YIngYuanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D87A1C8C589600116BDA /* YIngYuanTableViewCell.m */; };
@@ -173,6 +174,8 @@
 		7AC42CCC1C8EF78F006117FA /* DownloadCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadCollectionViewCell.xib; sourceTree = "<group>"; };
 		7AC42CCF1C8EFD87006117FA /* DownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadModel.h; sourceTree = "<group>"; };
 		7AC42CD01C8EFD87006117FA /* DownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadModel.m; sourceTree = "<group>"; };
+		7AD571001C9248FC00645059 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		7AD571011C9248FD00645059 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		7AE6D8731C8C210B00116BDA /* BaozouMHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaozouMHViewController.h; sourceTree = "<group>"; };
 		7AE6D8741C8C210B00116BDA /* BaozouMHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaozouMHViewController.m; sourceTree = "<group>"; };
 		7AE6D8761C8C4ECE00116BDA /* BaouYingYuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaouYingYuanViewController.h; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				7A6ACE5E1C8D9F95009CDA01 /* SetViewController.m */,
 				7A47ACC41C90066D006E5CC8 /* CommentsViewController.h */,
 				7A47ACC51C90066D006E5CC8 /* CommentsViewController.m */,
+				7AD571001C9248FC00645059 /* CollectionViewController.h */,
+				7AD571011C9248FD00645059 /* CollectionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				7AC42C771C8E65CB006117FA /* ProgressHUD.m in Sources */,
 				7AE6D87C1C8C589600116BDA /* YIngYuanTableViewCell.m in Sources */,
 				7A6ACE5C1C8D8A3A009CDA01 /* VideoViewController.m in Sources */,
+				7AD571021C9248FD00645059 /* CollectionViewController.m in Sources */,
 				7A32C5991C8A70450038CB71 /* UIView+UIViewExtension.m in Sources */,
 				7A45B0381C8918B30069369A /* MainModel.m in Sources */,
 				7AC42CBE1C8EC7D2006117FA /* README.md in Sources */,
