@@ -9,6 +9,7 @@
 #import "BaozouMHViewController.h"
 #import "MainViewController.h"
 #import "BaouYingYuanViewController.h"
+#import "SetViewController.h"
 
 @interface BaozouMHViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;
@@ -93,8 +94,8 @@
 }
 //设置
 -(void)setViewAction{
-    UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UINavigationController *setnav = [mainSB instantiateViewControllerWithIdentifier:@"set"];
+    SetViewController *setVC = [[SetViewController alloc] init];
+    UINavigationController *setnav = [[UINavigationController alloc] initWithRootViewController:setVC];
     [self.navigationController presentViewController:setnav animated:NO completion:nil];
 }
 //登陆
