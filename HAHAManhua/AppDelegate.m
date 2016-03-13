@@ -10,6 +10,7 @@
 #import <BmobSDK/Bmob.h>
 #import "WeiboSDK.h"
 #import "WXApi.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()<WeiboSDKDelegate, WXApiDelegate>
 
@@ -72,7 +73,7 @@
 }
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
-    
+
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

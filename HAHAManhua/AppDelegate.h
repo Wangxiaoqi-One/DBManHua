@@ -15,5 +15,7 @@
 @property (nonatomic, strong) NSString *wbRefreshToken;
 @property (nonatomic, strong) NSString *wbCurrentUserId;
 
+@property (nonatomic, strong) NSDictionary *userDic;
+
 @end
 

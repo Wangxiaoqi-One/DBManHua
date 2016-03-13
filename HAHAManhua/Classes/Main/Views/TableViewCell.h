@@ -13,6 +13,7 @@
 
 - (void)showComments:(NSString *)user_id;
 - (void)collectionBtnAction;
+- (void)warnAction;
 
 @end
 

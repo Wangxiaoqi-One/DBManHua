@@ -8,11 +8,13 @@
 
 #import "LoginViewController.h"
 #import <BmobSDK/BmobUser.h>
+#import "WeiboSDK.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *user_name;
 @property (strong, nonatomic) IBOutlet UITextField *user_password;
 - (IBAction)loginBtnAction:(UIButton *)sender;
+- (IBAction)weibologin:(UIButton *)sender;
 
 @end
 
@@ -73,4 +75,5 @@
 
     }];
 }
+
 @end

@@ -85,7 +85,7 @@
     if (self.user_name.text.length > 0 && [self.user_name.text stringByReplacingOccurrencesOfString:@" " withString:@""].length > 0 && self.user_password.text.length > 0) {
         //两次输入密码一致
         if ([self.user_password.text isEqualToString:self.confirm_password.text]) {
-            return YES;
+            return [self validateEmail:self.user_email.text];
         }else{
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"用户提示" message:@"两次输入的密码不一致" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action =[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -103,7 +103,7 @@
         [self.navigationController presentViewController:alertController animated:YES completion:nil];
         return NO;
     }
-    return [self validateEmail:self.user_email.text];
+    return YES;
 
 }
 

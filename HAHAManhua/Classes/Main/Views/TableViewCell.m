@@ -41,6 +41,8 @@
 @property (copy, nonatomic) NSString *user_avart;
 @property (copy, nonatomic) NSString *picture;
 
+@property (nonatomic, assign) BOOL press;
+
 @end
 
 @implementation TableViewCell
@@ -125,6 +127,7 @@
         self.posBtn.frame = CGRectMake(0, 0, kwidth, 44);
         [self.posBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [self.posBtn setImage:[UIImage imageNamed:@"comment_ding_pressed"] forState:UIControlStateNormal];
+        [self.posBtn addTarget:self action:@selector(pospressAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _posBtn;
 }
@@ -135,6 +138,8 @@
         self.negBtn.frame = CGRectMake(self. posBtn.right, 0, kwidth, 44);
         [self.negBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [self.negBtn setImage:[UIImage imageNamed:@"button_cai"] forState:UIControlStateNormal];
+        [self.negBtn addTarget:self action:@selector(negpressAction) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _negBtn;
 }
@@ -172,6 +177,9 @@
     return _shareBtn;
 }
 
+
+#pragma mark ------set方法
+
 - (void)setModel:(MainModel *)model{
     self.user_id = model.user_id;
     self.titleLabel.text = model.content;
@@ -192,7 +200,7 @@
     [self.commentsBtn setTitle:[NSString stringWithFormat:@"%@", model.public_comments_count] forState:UIControlStateNormal];
     [self.favoriteBtn setTitle:[NSString stringWithFormat:@"收藏"] forState:UIControlStateNormal];
     [self.favoriteBtn setHidden:NO];
-    [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
+//    [self.shareBtn setTitle:[NSString stringWithFormat:@"分享"] forState:UIControlStateNormal];
     [self.shareBtn setHidden:NO];
 }
 
@@ -217,6 +225,8 @@
 }
 
 
+#pragma mark  ----获取高度的方法
+
 - (CGFloat)getcellHeight:(MainModel *)model{
     CGFloat mheight = [model.height floatValue];
     CGFloat height = mheight + 135;
@@ -229,16 +239,22 @@
     return height;
 }
 
+#pragma mark -------按钮方法
+
+//分享
 - (void)shareBtnAction{
     self.shareView = [[ShareView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
 }
 
+//评论
 - (void)commentsDetail{
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(showComments:)]) {
         [self.delegate showComments:self.user_id];
     }
 }
 
+
+//收藏
 - (void)collectionAction{
     BmobUser *user = [BmobUser getCurrentUser];
     if (user != nil) {
@@ -258,6 +274,33 @@
     }
 }
 
+
+//顶
+- (void)pospressAction{
+    if (!_press) {
+       NSInteger poscount = [self.posBtn.titleLabel.text integerValue] + 1;
+        [self.posBtn setTitle:[NSString stringWithFormat:@"%ld", poscount] forState:UIControlStateNormal];
+        self.press = YES;
+    }else{
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(warnAction)]) {
+            [self.delegate warnAction];
+            self.press = YES;
+        }
+    }
+}
+
+- (void)negpressAction{
+    if (!_press) {
+        NSInteger negcount = [self.negBtn.titleLabel.text integerValue] + 1;
+        [self.negBtn setTitle:[NSString stringWithFormat:@"%ld", negcount] forState:UIControlStateNormal];
+        self.press = YES;
+    }else{
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(warnAction)]) {
+            [self.delegate warnAction];
+            self.press = YES;
+        }
+    }
+}
 
 - (void)awakeFromNib {
     // Initialization code

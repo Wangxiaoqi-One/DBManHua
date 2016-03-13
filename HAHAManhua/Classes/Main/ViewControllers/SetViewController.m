@@ -11,6 +11,8 @@
 #import "ProgressHUD.h"
 #import <MessageUI/MessageUI.h>
 #import "CollectionViewController.h"
+#import <UIButton+WebCache.h>
+#import "AppDelegate.h"
 
 @interface SetViewController ()<MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -40,6 +42,9 @@
     BmobUser *user = [BmobUser getCurrentUser];
     if (user != nil) {
         [self.loginBtn setTitle:user.username forState:UIControlStateNormal];
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        WXQLog(@"%@", delegate.userDic[@"profile_image_url"]);
+        [self.loginBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",delegate.userDic[@"profile_image_url"]]] forState:UIControlStateNormal];
     }
 }
 #pragma mark ------UITableViewDataSource

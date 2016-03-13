@@ -32,6 +32,8 @@
 
 @property (nonatomic, copy) NSString *kHttp;
 
+@property (nonatomic, strong) UIImageView *warnImage;
+
 
 @end
 
@@ -63,6 +65,7 @@
     
     [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.warnImage];
     _pagecount = 3;
     self.kHttp = kGIF;
     //网络请求
@@ -156,6 +159,15 @@
         show_Hiden = YES;
     }
     return _cv;
+}
+
+- (UIImageView *)warnImage{
+    if (_warnImage == nil) {
+        self.warnImage = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth / 4, 100, kScreenWidth / 2, 100)];
+        self.warnImage.image = [UIImage imageNamed:@"has_clicked_toast"];
+        self.warnImage.hidden = YES;
+    }
+    return _warnImage;
 }
 
 #pragma mark ----CustomMethod
@@ -262,13 +274,21 @@
     [self rightBtnAction:btn];
 }
 
+- (void)swipe:(UISwipeGestureRecognizer *)gesture{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.cv.frame = CGRectMake(kScreenWidth, 0, 200, kScreenHeight - 64);
+        show_Hiden = YES;
+    }];
+}
+
+#pragma mark -------Commentstablecell代理
+
 - (void)showComments:(NSString *)user_id{
     CommentsViewController *commentsVC = [[CommentsViewController alloc] init];
     commentsVC.user_id = user_id;
     [self.navigationController pushViewController:commentsVC animated:YES];
     
 }
-
 
 - (void)collectionBtnAction{
     UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"login" bundle:nil];
@@ -283,11 +303,13 @@
         [self.view addGestureRecognizer:swipe];
 }
 
-- (void)swipe:(UISwipeGestureRecognizer *)gesture{
-    [UIView animateWithDuration:0.5 animations:^{
-        self.cv.frame = CGRectMake(kScreenWidth, 0, 200, kScreenHeight - 64);
-        show_Hiden = YES;
-    }];
+- (void)warnAction{
+    self.warnImage.hidden = NO;
+    [self performSelector:@selector(hidenWarnImage) withObject:nil afterDelay:1.0];
+}
+
+- (void)hidenWarnImage{
+    self.warnImage.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
